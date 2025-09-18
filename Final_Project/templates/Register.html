@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            overflow: hidden;
+        }
+        .background-image {
+            background-image: url('/static/register.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .translucent-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 35px;
+            max-width: 550px;
+            width: 50%;
+        } 
+    </style>
+</head>
+<body>
+    <header class="text-gray-400 bg-gray-900 body-font">
+        <div class="container mx-auto flex flex-wrap p-3 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+            <span class="ml-8 text-xl">House Price Prediction</span>
+          </a>
+          <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700	flex flex-wrap items-center text-base justify-center">
+            <a href="aboutus.html" class="mr-5 hover:text-white">About Us</a>
+            <a href="contact.html" class="mr-5 hover:text-white">Contact Us</a>
+          </nav>
+        </div>
+      </header>
+    <section class="background-image">
+    <div class="flex flex-col translucent-container rounded-lg items-center justify-center">
+        <a class="flex items-center mb-2 text-2xl font-semibold text-gray-900 dark:text-white">
+            House Price Prediction  
+        </a>
+        <div class="w-full bg-white rounded-lg md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <h1 class="text-xl font-bold text-gray-900 md:text-2xl dark:text-white">
+                    Create an Account
+                </h1>
+                <form id="register-form" class="space-y-4 md:space-y-6">
+                    <div>
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Username</label>
+                        <input type="name" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="your-name" required="">
+                    </div>
+                    <div>
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="">
+                    </div>
+                    <div>
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                        <input type="password" name="password" id="password" placeholder="••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                    </div>
+                    <div>
+                        <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password</label>
+                        <input type="password" name="confirm-password" id="confirm-password" placeholder="••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                    </div>
+                    <button type="submit" class="bg-blue-700 hover:bg-blue-500 text-white font-bold py-2 px-5 rounded items-center justify-center">Create an account</button>
+                    <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                        Already have an account? <a href="Login.html" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Login here</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+    </section>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, set , ref } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyCtN23r-hxR_ZLfxtkNTxt_EMT_Ejv1PSw",
+            authDomain: "house-price-3d9eb.firebaseapp.com",
+            databaseURL: "https://house-price-3d9eb-default-rtdb.firebaseio.com",
+            projectId: "house-price-3d9eb",
+            storageBucket: "house-price-3d9eb.appspot.com",
+            messagingSenderId: "749652756098",
+            appId: "1:749652756098:web:0e4c7cfccb22869f14969b"
+        };
+
+        const app = initializeApp(firebaseConfig);
+
+        const db = getDatabase();
+        const auth = getAuth(app);
+
+        let email = document.getElementById('email');
+        let password = document.getElementById('password');
+        let confirmPassword = document.getElementById('confirm-password');
+        let username = document.getElementById('name');
+        let registerForm = document.getElementById('register-form');
+
+        let RegisterUser = evt => {
+            evt.preventDefault();
+
+            if (password.value !== confirmPassword.value) {
+                alert('Passwords do not match.');
+                return;
+            }
+            if (password.value.length < 6) {
+                alert('Password must be at least 6 characters long');
+                return;
+            }
+
+            createUserWithEmailAndPassword(auth, email.value, password.value)
+            .then((credentials)=>{
+                set(ref(db,'UsersAuthList/' + credentials.user.uid),{
+                    name:  username.value,
+                })
+                alert('User registered successfully!');
+                window.location.href="Login.html";
+            })
+            .catch((error)=>{
+                alert(error.message);
+                console.error(error.code);
+                console.error(error.message);
+            });
+        }
+        registerForm.addEventListener('submit', RegisterUser);
+    </script>
+</body>
+</html>

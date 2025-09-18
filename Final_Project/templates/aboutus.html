@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+      body{
+        overflow: hidden;
+      }
+        .background-image {
+            background-image: url('/static/aboutus.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .translucent-container {
+            background-color: rgba(0, 0, 0, 0.3); /* Adjust the alpha value to change the translucency */
+            padding: 30px;
+            border-radius: 6px;
+            max-width: 1000px;
+        }
+    </style>
+</head>
+
+<body>
+  <header class="text-gray-400 bg-gray-900 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+        <span class="ml-3 text-xl">House Price Prediction</span>
+      </a>
+      <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700	flex flex-wrap items-center text-base justify-center">
+        <a href="Login.html" class="mr-5 hover:text-white">Login Page</a>
+        <a href="aboutus.html" class="mr-5 hover:text-white">About Us</a>
+        <a href="contact.html" class="mr-5 hover:text-white">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+    <section class="text-gray-600 bg-black body-font background-image">
+        <div class="container px-8 py-20 mx-auto flex flex-col items-center">
+            <div class="translucent-container">
+                <div class="lg:w-4/6 mx-auto">
+                    <div class="flex flex-col sm:flex-row mt-10">
+                        <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
+                            <div class="flex flex-col items-center text-center justify-center">
+                                <h2 class=" title-font text-gray-100 text-2xl">Dheeraj Vinay
+                                    Yadav</h2>
+                                <div class="w-20 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+                                <p class="text-base text-gray-100">A TYCS student at Universal College created this House
+                                    Price Prediction Website as my Final Year Project to help people get a sense of the
+                                    prices of houses in the City of Mumbai.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
+                            <p class="leading-relaxed text-gray-100 text-lg mb-4">
+                                As a TYCS student at Universal College, I've developed a user-friendly website dedicated to
+                                simplifying the process of predicting house prices. Combining my passion for technology
+                                with a desire to make a positive impact, I meticulously designed algorithms to analyze
+                                various factors and provide accurate predictions.
+
+                                The interface is intuitive and accessible, catering to individuals of all backgrounds.
+                                Each line of code was purposefully written to alleviate the stress and uncertainty
+                                often associated with real estate decisions.
+
+                                Through perseverance, I've created a platform that empowers users to confidently
+                                navigate the housing market. Witnessing the positive impact of my website reaffirms the
+                                significance of my endeavor, highlighting the transformative power of technology when
+                                wielded with purpose and empathy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            overflow: hidden;
+        }
+        .background-image {
+            background-image: url('/static/login-image-1.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <header class="text-gray-400 bg-gray-900 body-font">
+        <div class="container mx-auto flex flex-wrap p-3 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+            <span class="ml-8 text-xl">House Price Prediction</span>
+          </a>
+          <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700	flex flex-wrap items-center text-base justify-center">
+            <a href="aboutus.html" class="mr-5 hover:text-white">About Us</a>
+            <a href="contact.html" class="mr-5 hover:text-white">Contact Us</a>
+          </nav>
+        </div>
+      </header>
+    <section class="bg-gray-50 dark:bg-gray-900 background-image">
+        <div class="flex flex-col items-center justify-center px-6 py-16 mx-auto md:h-screen lg:py-0">            
+            <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 bg-opacity-80">
+                <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                    <h1 class="text-2xl font-bold leading-tight tracking-tight text-gray-900 md:text-3xl dark:text-white ml-6 ">
+                        Welcome to the Website
+                    </h1>
+                    <h1 class="text-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                        Sign In
+                    </h1>
+                    <form id="loginForm" class="space-y-4 md:space-y-6" action="#">
+                        <div>
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Email ID</label>
+                            <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@mail.com" required="">
+                        </div>
+                        <div>
+                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                            <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                        </div>
+                        <button type="submit" class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</button>
+                        <div class="flex items-center justify-between">
+                        <p class="text-sm font-bold text-gray-600 dark:text-gray-400">
+                            Don’t have an account yet? <a href="Register.html" class="font-medium text-primary-600 hover:underline dark:text-primary-500">
+                                Register Here!</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getDatabase, get, ref, child } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+    
+    const firebaseConfig =
+    {
+        apiKey: "AIzaSyCtN23r-hxR_ZLfxtkNTxt_EMT_Ejv1PSw",
+        authDomain: "house-price-3d9eb.firebaseapp.com",
+        databaseURL: "https://house-price-3d9eb-default-rtdb.firebaseio.com",
+        projectId: "house-price-3d9eb",
+        storageBucket: "house-price-3d9eb.appspot.com",
+        messagingSenderId: "749652756098",
+        appId: "1:749652756098:web:0e4c7cfccb22869f14969b"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase();
+    const auth = getAuth(app);
+    const dbref = (db);
+
+    let email = document.getElementById('email');
+    let password = document.getElementById('password');
+    let loginForm = document.getElementById('loginForm');
+
+    let SignInUser = evt => {
+        evt.preventDefault();
+
+        console.log("Attempting login...");
+
+        signInWithEmailAndPassword(auth, email.value, password.value)
+        .then((credentials)=>{
+            console.log("Login successful!");
+            window.location.href = "home.html";
+        })
+        .catch((error)=>{
+            console.error("Login error:", error.message);
+            alert(error.message);
+        });
+    }
+    loginForm.addEventListener('submit', SignInUser);
+</script>
+</body>
+</html>

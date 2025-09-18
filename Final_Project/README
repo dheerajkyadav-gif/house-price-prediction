@@ -1,0 +1,32 @@
+Components/Coding Languages Used in Building and Coding the Project:-
+1. Front-End:- HTML, Tailwind CSS, JavaScript
+2. Back-End:- Google Firebase
+3. Prediction Model:- Scikit-Learn(RandomForrestRegressor) in Python
+4. Deployment:- Python Flask Module
+
+REQUIREMENTS to Run this Project:-
+1. **INTERNET MANDATORY**
+2. *PATIENCE*. Project is Coded Majorly in Python so it takes time to Run and Execute.
+3. VScode Editor
+4. *Python Packages*:- Open CMD and run the following command-
+          pip install flask, matplotlib, scikit-learn.
+5. You have to Just run the *app.py* file and that's it!
+6. Rest Instructions are given below!
+
+This project is Live i.e. Backend is Connected and Functional. Any New Entry in the Registration from will be added to the Database.
+
+This House price prrediction project does not apply or indicate actual real world prices, This Model is just a simulation of ahow can we predict the house prices when given inputs as "Locations" and "No. of Bedrooms (BHK)"
+
+The entire project has to be opened in VSCode to run it properly.
+
+Once the project folder has been opened in Vs code, then open the **app.py** file from the Explorer Window. Run this file!
+
+It will run in your VSCode Terminal and will give you a localhost URL to access and view the live website. The Localhost URL will be in the form of "http://127.0.0.1:5000" 
+
+Paste this Localhost URL in Your Browsers URL Bar. Then You will be greeted with a Login Screen.
+
+For Example I have created a mail and password for one to login and try out the Website.
+
+The Credentials are:-
+Mail-id: a@g.co
+Pwd: 123456
